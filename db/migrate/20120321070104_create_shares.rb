@@ -4,6 +4,7 @@ class CreateShares < ActiveRecord::Migration
       t.integer :id
       t.integer :user_id
       t.string :content
+      t.integer :total_vote
       t.timestamps
     end
     add_index :shares,:user_id
