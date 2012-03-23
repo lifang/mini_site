@@ -5,7 +5,7 @@ class Admin::ManageSharesController < ApplicationController
   end
 
   def delete_share
-    Share.delete(params[:delete_id].to_i)
+    Share.find(params[:delete_id].to_i).destroy
     redirect_to request.referer
   end
 end
