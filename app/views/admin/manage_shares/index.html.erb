@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <th>用户ID</th>
+    <th>发表内容</th>
+    <th>得票数量</th>
+    <th>操作</th>
+  </tr>
+  <% @shares.each do |share| %>
+    <tr>
+      <td><%= share.u_id %></td>
+      <td><%= share.content %></td>
+      <td><%= share.total_vote %></td>
+      <td><button onclick="delete_share(<%= share.id %>)">删除</button></td>
+    </tr>
+  <% end %>
+</table>
+<%= form_for :delete_share ,:url=>"/admin/manage_shares/delete_share", :method => "post",:html=>{:id=>:delete_form} do |f|%>
+  <input type="hidden" id="delete_id" name="delete_id" value="" />
+<% end %>
+<%=  will_paginate @shares ,:previous_label=>" &lt;", :next_label=>" &gt;" %>

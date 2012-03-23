@@ -11,6 +11,8 @@ class SharesController < ApplicationController
 
 
   def vote_u
+    share=Share.find(params[:vote_id].to_i)
+    share.update_attributes(:total_vote=>share.total_vote+1)
     Vote.create(:user_id=>cookies[:user_id],:share_id=>params[:vote_id].to_i)
     redirect_to request.referer
   end
