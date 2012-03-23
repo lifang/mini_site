@@ -1,5 +1,9 @@
 MiniSite::Application.routes.draw do
-  resources :shares
+  resources :shares do
+    collection do
+      post :vote_u
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
