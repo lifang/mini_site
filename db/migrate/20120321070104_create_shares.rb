@@ -8,5 +8,6 @@ class CreateShares < ActiveRecord::Migration
       t.timestamps
     end
     add_index :shares,:user_id
+    add_index :shares,:total_vote
   end
 end
